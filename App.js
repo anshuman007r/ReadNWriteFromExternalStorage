@@ -5,7 +5,7 @@ import Test from './ReducerTester'
 import AddTodo from './Todo/AddTodo'
 import TodoList from './Todo/TodoList'
 import Filter from './Todo/Filter'
-import { Alert, TouchableOpacity, Text, PermissionsAndroid, Image } from 'react-native'
+import { Alert, TouchableOpacity, Text, PermissionsAndroid, Image, ScrollView } from 'react-native'
 import RNFetchBlob from 'react-native-fetch-blob'
 const dirOfLocal = '/storage/emulated/0/Demo/'
 import RNFS from 'react-native-fs'
@@ -91,11 +91,13 @@ export default class App extends Component {
           <TouchableOpacity onPress = {()=>this.getImage()} style = {{ alignSelf : 'center', marginTop : 20, borderColor : 'grey', borderWidth : 1}}>
             <Text> Get Image</Text>
           </TouchableOpacity>
+          <ScrollView>
           {
             this.state.images.map((image, index) =>
-              <Image source = {{uri : 'file://'+image.path}} style={{height : 30, width : 30, borderWidth : 1, borderRadius :1, borderColor :'#000' }} key ={index}/>
+              <Image source = {{uri : 'file://'+image.path}} style={{marginHorizontal :20, marginVertical:20, flex : 1, borderWidth : 1, borderRadius :1,aspectRatio : 2/3, borderColor :'#000' }} key ={index}/>
             )
           }
+          </ScrollView>
           {/* <AddTodo/>
           <TodoList/>
           <Filter/> */}
