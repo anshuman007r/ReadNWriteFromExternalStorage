@@ -70,7 +70,7 @@ export default class App extends Component {
   }
   
   callAPI = (options) => {
-    let imageURL = 'http://utic.trisysit.com/utic/static/images/logo.png'
+    let imageURL = 'https://homepages.cae.wisc.edu/~ece533/images/airplane.png'
     RNFetchBlob.config(options).fetch('GET', imageURL )
     .then(res =>{
       console.log('res',JSON.stringify(res))
